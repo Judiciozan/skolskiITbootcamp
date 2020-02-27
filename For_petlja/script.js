@@ -197,3 +197,4 @@ for (i = 1; i <= 16; i++) {
 
 
 console.log("bla");
+console.log("testPoruka");
