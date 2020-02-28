@@ -79,5 +79,31 @@ imena.forEach(elem => {
     lista.innerHTML += item;
 
 });
+// 3.
+let tabela =  document.querySelector('table');
+let sadrzaj = "";
+imena.forEach (ime => {
+    let item =`<tr><td>${ime}</tr></td>`;
+    sadrzaj += item;
+});
+tabela.innerHTML += sadrzaj;
+
+// Dohvatamo svu decu (direktne potomke) body taga
+let potomci= document.body.children;
+console.log(potomci);
+//HTML kolekcija = ne moze direktna forEach petlja
+//Za forEach petlju, moramo HTML kolekciju da konvertujemo u Niz
+let niz = Array.from(potomci);
+niz.forEach(elem => {
+    console.log(elem);
+});
+
+// Dohvatimo svu decu ul liste
+let decaListe= lista.children;
+let nizDecaListe = Array.from(decaListe);
+nizDecaListe.forEach(elem => {
+    console.log(elem);
+});
+
 
 
