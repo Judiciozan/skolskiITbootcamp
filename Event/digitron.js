@@ -1,7 +1,11 @@
+let btn = document.querySelectorAll('.broj');
+let operacija = document.querySelectorAll('.operacija');
 let x = 0;
 let y = 0;
 let z = 0;
 let op = "";
+let rez = 0;
+let jednako = document.getElementById('jednako');
 
 let b1 = document.getElementById('b1');
 let b2 = document.getElementById('b2');
@@ -13,28 +17,27 @@ let b7 = document.getElementById('b7');
 let b8 = document.getElementById('b8');
 let b9 = document.getElementById('b9');
 
-b1.addEventListener('click', () =>{
-    if(x == 0) {
-        x = 1;
-    } else {
-        y = 1;
-    }
+operacija.forEach(elem => {
+    elem.addEventListener('click', () => {
+        op = elem.textContent;
+    });
 });
 
-b2.addEventListener('click', () =>{
-    if(x == 0) {
-        x = 2;
-    } else {
-        y = 2;
-    }
+btn.forEach(elem => {
+    elem.addEventListener('click', () => {
+       if(x == 0){
+           x = elem.textContent;
+       }
+       else {
+           y = elem.textContent;
+       }
+        console.log(x, y);
+    });
 });
+ 
+x = parseInt(x);
+y = parseInt(y);
 
-let s = document.getElementById('sabiranje');
-s.addEventListener('click', () => {
-    op = '+';
-});
-
-let jednako = dokument.getElementById('jednako');
 jednako.addEventListener("click", () => {
     switch(op) {
         case "+":
@@ -43,14 +46,17 @@ jednako.addEventListener("click", () => {
         case "-":
             rez = x - y;
             break;
-        case "+":
+        case "*":
             rez = x * y;
             break;
-        case "+":
+        case "/":
             rez = x / y;
             break;
     }
-    let paragraf = document.getElementById('rezultat');
+    let paragraf = document.getElementById('bla');
     paragraf.innerText = rez;
+    x = 0;
+    y = 0;
+    rez =0;
 });
 
