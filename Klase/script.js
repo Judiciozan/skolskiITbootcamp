@@ -40,9 +40,9 @@ console.log(auto1, auto2);
 auto1.sviraj();
 auto2.sviraj();
 
-let film1 = new Film ("Prokletnici", "Kventin Tarantino", 2009 );
-let film2 = new Film ("Ko to tamo peva", "Slobodan Sijan", 1980 );
-let film3 = new Film ("Kum", "Frensis Ford Kopola", 1972 );
+let film1 = new Film ("Prokletnici", "Kventin Tarantino", 2009, [8.8, 9, 8.2, 7.7] );
+let film2 = new Film ("Ko to tamo peva", "Slobodan Sijan", 1980, [10, 10, 8.9, 9.7] );
+let film3 = new Film ("Kum", "Frensis Ford Kopola", 1972, [8.2, 8.5, 9.6, 9.7] );
 
 console.log(film1);
 console.log(film2);
@@ -67,3 +67,76 @@ console.log(p3.Kritican());
 
 film1.aGodina = 1500;
 console.log(film1.godinaIzdanja);
+
+let pa1 = new Pacijent ("Ana", 173, 70);
+let pa2 = new Pacijent ("Mira", 165, 55);
+let pa3 = new Pacijent ("Mila", 176, 65);
+
+let pacijenti = [pa1, pa2, pa3];
+
+let najmanjaTezina = niz => {
+    let min  = pacijenti[0].pTezina;
+    let minPac = pacijenti[0];
+    pacijenti.forEach(elem => {
+        if (min > elem.pTezina){
+            minPac = elem;
+            min = elem.pTezina;
+        }
+    });
+    return minPac.Stampaj();
+}
+
+
+najmanjaTezina(pacijenti);
+
+let maksPac = pacijenti[0];
+pacijenti.forEach(elem => {
+    if(elem.Bmi() > maksPac.Bmi()) {
+        maksPac = elem;
+    }
+});
+maksPac.Stampaj();
+
+let filmovi = [film1, film2, film3];
+
+filmovi.forEach( elem => {
+    elem.fOcene.forEach(o => {
+        console.log(o);
+    });
+});
+console.log(film1.prosecnaOcena());
+
+let filmVek = (niz, odGod, doGod) => {
+    niz.forEach(elem => {
+        if(elem.godinaIzdanja >= odGod && elem.godinaIzdanja <= doGod){
+            elem.stampaj();
+        }
+    });
+}
+filmVek(filmovi, 0, 2020);
+
+let prosecnaOcenaSvih = (niz) => {
+    let suma = 0;
+    let brojOcena = 0; 
+    niz.forEach( film => {
+        let ocene = film.ocene;
+        ocene.forEach( o => {
+            suma += o;
+            brojOcena++;
+        });
+    });
+    return suma / brojOcena;
+}
+
+console.log(prosecnaOcenaSvih(filmovi));
+
+let najboljeOcenjeni = (niz) => {
+    let naj = niz[0];
+    niz.forEach(film => {
+        if(naj.prosecnaOcena() < film.prosecnaOcena()) {
+            naj = film;
+        }
+    });
+    return naj;
+}
+najboljeOcenjeni(filmovi).stampaj();
