@@ -130,6 +130,7 @@ let prosecnaOcenaSvih = (niz) => {
 
 console.log(prosecnaOcenaSvih(filmovi));
 
+
 let najboljeOcenjeni = (niz) => {
     let naj = niz[0];
     niz.forEach(film => {
@@ -140,3 +141,43 @@ let najboljeOcenjeni = (niz) => {
     return naj;
 }
 najboljeOcenjeni(filmovi).stampaj();
+
+let osrednjiFilm = (niz) => {
+    let najbliziElem = niz[0];
+    let globalniProsek = prosecnaOcenaSvih(niz);
+    let najbliziProsek = Math.abs(niz[0].prosecnaOcena() - globalniProsek);
+
+    niz.forEach( elem => {
+        if (Math.abs(elem.prosecnaOcena() - globalniProsek) < najbliziProsek){
+            najbliziElem = elem;
+            najbliziProsek = Math.abs(elem.prosecnaOcena() - globalniProsek);
+        }
+    });
+    return najbliziElem;
+}
+
+
+osrednjiFilm(filmovi).stampaj();
+console.log(film1.prosecnaOcena());
+console.log(film2.prosecnaOcena());
+console.log(film3.prosecnaOcena());
+
+let oc = [1, 5, 7, 8.3, 4.001, 1, 10, 9, 9, 5, 5, 5];
+
+let najcesca = oc[0];
+let ponavljanje = 0;
+let maxPonavljanja = 0;
+
+for( let i = 0; i < oc.length; i++){
+    for(let j = 0; j < oc.length; j++){
+        if(oc[i]== oc[j]){
+            ponavljanje++;
+        }
+    }
+    if (ponavljanje > maxPonavljanja) {
+        maxPonavljanja = ponavljanje;
+        najcesca = oc[i];
+    }
+    ponavljanje = 0;
+}
+console.log(`Najfrekventija ocena je ${najcesca}`);
