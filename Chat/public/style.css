@@ -1,0 +1,135 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    color: purple;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.btn{
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    background-color: purple;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    background-color: rebeccapurple;
+    cursor: pointer;
+}
+#start, #end{
+    width: 200px;
+}
+
+form{
+    margin: 15px;
+}
+
+input, textarea{
+    width: 400px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+textarea{
+    margin-bottom: -10px;
+}
+
+input:focus, textarea:focus{
+    border: 3px purple solid;
+}
+
+input:focus, .btn:focus, textarea:focus{
+    outline-width: 0;
+}
+
+.username{
+    font-weight: bold;
+}
+
+.date{
+    color: grey;
+}
+.me {
+    margin-left: auto;
+    background-color: burlywood !important;
+    border-radius: 20px 0px 20px 20px !important;
+}
+
+#ulMessages {
+    list-style-type: none;
+    font-size: 20px;
+
+    position: absolute;
+    left: 0;
+    right : 0;
+    top : 25%;
+    bottom : 30%;
+
+    overflow: hidden;
+
+    text-align: left;
+    width: 700px;
+    margin: 0 auto;
+    word-wrap: break-word;
+    overflow-y: auto;
+   
+
+}
+
+#ulMessages>li {
+    width: 60%;
+    background-color: aquamarine;
+    margin-bottom: 10px;
+    padding: 15px ;
+    border-radius:0px 20px 20px 20px;
+    margin-right: 5px;
+
+}
+
+#top {
+    position: absolute;
+    height: 25%;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    overflow: hidden;
+}
+#bottom {
+    position: absolute ;
+    height: 30%;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    overflow: hidden;
+}
+
+#divUpdatedUsername {
+    font-size: 20px;
+}
+
+#spanNewUsername{
+    font-weight: bold;
+}
+
+.btn-selected {
+    background-color: chartreuse;
+    color: purple;
+}
+
+textarea, #btnSend {
+    display: inline;
+}
